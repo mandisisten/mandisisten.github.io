@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel — Sul Metropolitano</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="admin/admin.css">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <div id="tela-login" class="tela-central">
+    <h1>Painel — Sul Metropolitano</h1>
+    <p class="ajuda">
+      Este painel publica direto no repositório do GitHub. Ele é acessível publicamente pelo endereço,
+      mas isso não é problema: quem protege o painel é o token, não o segredo do endereço. Nunca cole
+      o token em outro lugar, e use um token <strong>fine-grained</strong> com permissão
+      <code>Contents: Read and write</code> restrita só a este repositório.
+    </p>
+    <form id="form-login">
+      <label class="primeira" for="campo-owner">Usuário/organização do GitHub</label>
+      <input type="text" id="campo-owner" placeholder="ex.: rrodriguespr" required>
+
+      <label for="campo-repo">Nome do repositório</label>
+      <input type="text" id="campo-repo" placeholder="ex.: portal-sul-metropolitano" required>
+
+      <label for="campo-branch">Branch</label>
+      <input type="text" id="campo-branch" value="main">
+
+      <label for="campo-token">Token de acesso pessoal (fine-grained)</label>
+      <input type="password" id="campo-token" placeholder="github_pat_..." required>
+
+      <button type="submit" class="botao largo" id="btn-entrar" style="margin-top:16px;">Entrar</button>
+    </form>
+    <div id="login-erro"></div>
+  </div>
+
+  <div id="app" class="oculto">
+    <header class="painel-topo">
+      <strong>Sul Metropolitano</strong>
+      <span style="font-size:0.8rem;opacity:0.85;">painel</span>
+    </header>
+    <nav class="abas">
+      <button data-aba="materias" class="ativa">Matérias</button>
+      <button data-aba="vagas">Vagas</button>
+      <button data-aba="obituarios">Obituários</button>
+      <button data-aba="agenda">Agenda</button>
+      <button data-aba="anunciantes">Anunciantes</button>
+      <button data-aba="config">Configurações</button>
+    </nav>
+    <main class="painel-conteudo" id="conteudo"></main>
+  </div>
+
+  <script src="admin/config.js"></script>
+  <script src="admin/slugify.js"></script>
+  <script src="admin/sanitize.js"></script>
+  <script src="admin/image.js"></script>
+  <script src="admin/github.js"></script>
+  <script src="admin/templates.js"></script>
+  <script src="admin/render-site.js"></script>
+  <script src="admin/editor.js"></script>
+  <script src="admin/store.js"></script>
+  <script src="admin/app.js"></script>
+</body>
+</html>

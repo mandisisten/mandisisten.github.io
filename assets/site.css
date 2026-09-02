@@ -1,0 +1,308 @@
+/* Sul Metropolitano — folha de estilo única do site.
+   Trocar valores aqui muda a aparência de todas as páginas já publicadas,
+   sem regerar nenhum HTML. Não crie um segundo arquivo de estilo.
+
+   Conceito: jornal digital clássico, sem exagero — serifada nos títulos,
+   filetes finos no lugar de caixas, cinza discreto para metadados, e um
+   único azul institucional para tudo que é interativo. O vermelho fica
+   reservado inteiramente para "urgente". */
+
+:root {
+  --tinta: #16181D;
+  --secundario: #5A5F66;
+  --apagado: #8A9099;
+  --papel: #FFFFFF;
+  --nevoa: #F4F6F8;
+  --filete: #E3E7EB;
+  --azul: #123A5B;
+  --azul-claro: #2F6491;
+  --tijolo: #B4372C;
+  --serif: Georgia, "Times New Roman", Times, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --largura-leitura: 680px;
+  --largura-texto: 40em;
+  --raio: 3px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; text-decoration: none; }
+.materia-corpo a, .pagina-institucional a, .rodape-cookies a, .busca-resultado, .legal a { color: var(--azul); text-decoration: underline; text-decoration-color: var(--filete); text-underline-offset: 2px; }
+.materia-corpo a:hover, .pagina-institucional a:hover, .legal a:hover { color: var(--azul-claro); }
+
+:focus-visible { outline: 2px solid var(--azul-claro); outline-offset: 2px; }
+
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; line-height: 1.2; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* kicker: rótulo pequeno azul acima de um título — a única "etiqueta" do
+   sistema. Nada de selos preenchidos ou cores por cidade: o kicker é
+   sempre azul institucional. */
+.kicker { display: block; font-size: 13px; color: var(--azul); margin-bottom: 6px; }
+a.kicker:hover { color: var(--azul-claro); }
+.etiqueta-urgente { color: var(--tijolo); font-weight: 700; }
+
+/* ---------- tarja urgente ---------- */
+.tarja-urgente { background: var(--tijolo); color: #fff; font-size: 13px; }
+.tarja-urgente a { display: block; }
+.tarja-urgente .container { display: flex; gap: 10px; align-items: baseline; padding: 8px 20px; }
+.tarja-urgente .rotulo { font-weight: 700; flex-shrink: 0; }
+
+/* ---------- cabeçalho ---------- */
+
+.topo { border-bottom: 1px solid var(--filete); }
+.topo-linha { display: flex; align-items: center; justify-content: space-between; padding: 20px 0 16px; gap: 12px; }
+.marca-nome { font-family: var(--serif); font-size: 26px; font-weight: 400; letter-spacing: -0.2px; line-height: 1; display: block; }
+.marca-assinatura { font-size: 12px; color: var(--apagado); margin-top: 5px; display: block; }
+
+.topo-acoes { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+
+.botao-icone {
+  background: none; border: none; border-radius: 50%;
+  width: 38px; height: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--tinta);
+}
+.botao-icone:hover { background: var(--nevoa); }
+
+.botao-busca {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: none; border: none; border-radius: 50%;
+  width: 38px; height: 38px; padding: 0;
+  color: var(--tinta); cursor: pointer;
+}
+.botao-busca:hover { background: var(--nevoa); }
+.botao-busca-texto { display: none; }
+@media (min-width: 860px) {
+  .botao-busca { width: auto; height: auto; border: 1px solid var(--filete); border-radius: var(--raio); padding: 9px 14px; }
+  .botao-busca:hover { background: none; border-color: var(--apagado); }
+  .botao-busca-texto { display: inline; font-size: 13.5px; color: var(--apagado); }
+}
+
+/* menu principal — curado, quebra em várias linhas em telas estreitas
+   (não usa scroll horizontal, porque isso corta o dropdown de Municípios) */
+nav.nav-principal {
+  border-top: 1px solid var(--filete);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 2px 22px;
+  padding: 0;
+}
+nav.nav-principal > a {
+  display: block; font-size: 14px; color: var(--secundario);
+  padding: 13px 0; border-bottom: 2px solid transparent;
+}
+nav.nav-principal > a:hover { color: var(--tinta); }
+
+.nav-dropdown { position: relative; }
+.nav-dropdown summary {
+  list-style: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 14px; color: var(--secundario);
+  padding: 13px 0; border-bottom: 2px solid transparent;
+}
+.nav-dropdown summary::-webkit-details-marker { display: none; }
+.nav-dropdown summary::after { content: "▾"; font-size: 0.65em; color: var(--apagado); }
+.nav-dropdown[open] summary::after { content: "▴"; }
+.nav-dropdown summary:hover { color: var(--tinta); }
+.nav-dropdown-lista {
+  position: absolute; top: 100%; left: 0; z-index: 40;
+  margin: 0; padding: 8px 0; list-style: none; min-width: 210px;
+  background: var(--papel); border: 1px solid var(--filete); border-radius: var(--raio);
+  box-shadow: 0 10px 24px rgba(22, 24, 29, 0.1);
+}
+.nav-dropdown-lista li { padding: 0; }
+.nav-dropdown-lista a { display: block; padding: 9px 16px; color: var(--tinta); font-size: 14px; }
+.nav-dropdown-lista a:hover { background: var(--nevoa); }
+
+.menu-completo { border-bottom: 1px solid var(--filete); }
+.menu-completo summary { list-style: none; cursor: pointer; padding: 12px 0; font-size: 14px; color: var(--azul); }
+.menu-completo summary::-webkit-details-marker { display: none; }
+.menu-completo-lista { display: flex; flex-wrap: wrap; gap: 6px 20px; padding: 2px 0 18px; }
+.menu-completo-lista a { color: var(--secundario); font-size: 14px; padding: 4px 0; }
+.menu-completo-lista a:hover { color: var(--tinta); }
+
+.busca-painel { border-bottom: 1px solid var(--filete); padding: 14px 0; }
+.busca-painel[hidden] { display: none; }
+.busca-campo { width: 100%; font-size: 15px; padding: 11px 14px; border: 1px solid var(--filete); border-radius: var(--raio); font-family: var(--sans); }
+.busca-resultados { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; max-height: 60vh; overflow-y: auto; }
+.busca-resultado-titulo { font-weight: 600; }
+.busca-resultado-meta { font-size: 12.5px; color: var(--apagado); }
+.busca-vazio { color: var(--apagado); font-size: 14px; }
+
+/* ---------- grade da home (coluna principal + barra lateral) ---------- */
+
+main { display: block; }
+
+.grade { display: grid; grid-template-columns: 1fr; gap: 0; padding: 30px 0 56px; }
+.coluna { min-width: 0; }
+
+@media (min-width: 860px) {
+  .grade { grid-template-columns: 1fr 300px; gap: 52px; }
+}
+
+/* ---------- manchete ---------- */
+
+.manchete { padding-bottom: 8px; }
+.manchete-imagem-link { position: relative; display: block; background: var(--nevoa); border-radius: var(--raio); aspect-ratio: 16 / 9; overflow: hidden; margin-bottom: 18px; }
+.manchete-imagem { width: 100%; height: 100%; object-fit: cover; }
+.manchete-imagem-link .video-card-play { font-size: 3rem; }
+.manchete-titulo { font-size: clamp(28px, 4.2vw, 40px); line-height: 1.14; letter-spacing: -0.3px; }
+.manchete-titulo a:hover { color: var(--secundario); }
+.manchete-resumo { font-family: var(--serif); font-size: 18px; line-height: 1.55; color: var(--secundario); margin-top: 12px; max-width: 60ch; }
+.assino { font-size: 13px; color: var(--apagado); margin-top: 14px; }
+
+/* ---------- lista de matérias ---------- */
+
+.lista { border-top: 1px solid var(--filete); margin-top: 30px; }
+.item { display: flex; gap: 22px; align-items: flex-start; padding: 22px 0; border-bottom: 1px solid var(--filete); }
+.item .txt { flex: 1; min-width: 0; }
+.item-titulo { font-family: var(--serif); font-size: 20px; font-weight: 400; line-height: 1.28; }
+.item-titulo a:hover { color: var(--secundario); }
+.item-resumo { display: none; font-size: 14.5px; line-height: 1.55; color: var(--secundario); margin-top: 7px; }
+.item-data { font-size: 12.5px; color: var(--apagado); margin-top: 9px; }
+.item .thumb { width: 96px; height: 70px; background: var(--nevoa); border-radius: var(--raio); flex-shrink: 0; overflow: hidden; }
+.item .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (min-width: 640px) {
+  .item-resumo { display: block; }
+  .item .thumb { width: 158px; height: 104px; }
+}
+
+/* ---------- vídeo (YouTube) ---------- */
+
+.video-embed { position: relative; width: 100%; padding-top: 56.25%; background: var(--tinta); border-radius: var(--raio); overflow: hidden; }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.bloco-videos { padding: 28px 0 6px; border-top: 1px solid var(--filete); margin-top: 8px; }
+.bloco-videos h2 { font-size: 19px; margin-bottom: 16px; }
+.grade-videos { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 640px) { .grade-videos { grid-template-columns: repeat(3, 1fr); } }
+.video-card-thumb { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: var(--raio); overflow: hidden; background: var(--nevoa); }
+.video-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.video-card-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 2.1rem; color: #fff; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65); }
+.video-card-titulo { display: block; margin-top: 9px; font-family: var(--serif); font-size: 15.5px; line-height: 1.3; }
+.video-card:hover .video-card-titulo { color: var(--secundario); }
+
+/* ---------- barra lateral ---------- */
+
+aside { margin-top: 34px; }
+@media (min-width: 860px) { aside { margin-top: 0; } }
+
+aside section { margin-bottom: 34px; }
+aside h4 { font-size: 16px; font-weight: 400; padding-bottom: 10px; border-bottom: 1.5px solid var(--tinta); margin-bottom: 2px; }
+
+.cidade-linha, a.cidade-linha { display: flex; justify-content: space-between; gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--filete); font-size: 14px; }
+.cidade-linha:hover .nome { color: var(--azul-claro); }
+.cidade-linha .nome { color: var(--azul); }
+.cidade-linha .quando { color: var(--apagado); font-size: 12.5px; flex-shrink: 0; }
+
+.mini { display: block; padding: 11px 0; border-bottom: 1px solid var(--filete); }
+.mini .t { display: block; font-family: var(--serif); font-size: 15px; line-height: 1.32; }
+.mini:hover .t { color: var(--secundario); }
+.mini .s { display: block; font-size: 12.5px; color: var(--apagado); margin-top: 4px; }
+
+.reserva-anuncio { background: var(--nevoa); border-radius: var(--raio); min-height: 100px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--apagado); }
+aside .reserva-anuncio { height: 230px; min-height: 0; }
+
+/* ---------- página de matéria ---------- */
+
+article.materia { max-width: var(--largura-leitura); padding: 30px 20px 56px; }
+.materia-cabecalho { margin-bottom: 0; }
+.materia-titulo { font-size: clamp(26px, 5vw, 38px); line-height: 1.15; letter-spacing: -0.3px; }
+.materia-resumo { font-family: var(--serif); font-size: 19px; line-height: 1.5; color: var(--secundario); margin-top: 12px; }
+.credito { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--apagado); margin: 18px 0; padding-bottom: 18px; border-bottom: 1px solid var(--filete); }
+
+.materia-imagem-wrap { margin-bottom: 0; }
+.materia-imagem-wrap img { border-radius: var(--raio); width: 100%; }
+.materia-imagem-legenda { font-size: 12.5px; color: var(--apagado); margin-top: 8px; }
+
+.materia-corpo { font-family: var(--serif); font-size: 18px; line-height: 1.75; margin-top: 24px; }
+.materia-corpo p { margin-bottom: 20px; }
+.materia-corpo h2 { font-size: 23px; font-weight: 400; margin: 30px 0 14px; }
+.materia-corpo h3 { font-size: 20px; font-weight: 400; margin: 26px 0 12px; }
+.materia-corpo blockquote { border-left: 2px solid var(--azul); padding-left: 20px; margin: 24px 0; color: var(--secundario); font-style: italic; }
+.materia-corpo ul, .materia-corpo ol { padding-left: 1.4em; margin: 0 0 20px; }
+.materia-corpo figure { margin: 26px 0; }
+.materia-corpo figcaption { font-size: 12.5px; color: var(--apagado); margin-top: 6px; }
+
+.materia-compartilhar { margin-top: 8px; }
+.botao-whatsapp {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--azul); color: #fff;
+  padding: 11px 20px; border-radius: var(--raio);
+  font-family: var(--sans); font-size: 14.5px; font-weight: 500;
+  margin-top: 10px;
+}
+.botao-whatsapp:hover { background: var(--azul-claro); }
+
+.relacionadas { margin-top: 40px; border-top: 1px solid var(--filete); padding-top: 22px; }
+.relacionadas h4 { font-size: 16px; margin-bottom: 4px; }
+
+/* ---------- cabeçalho de seção (cidade / editoria) ---------- */
+.cabecalho-secao { padding: 30px 0 6px; }
+.cabecalho-secao h1 { font-size: clamp(24px, 4vw, 32px); letter-spacing: -0.3px; }
+.cabecalho-secao p { color: var(--secundario); margin: 6px 0 0; font-size: 15px; }
+
+.paginacao { display: flex; justify-content: space-between; gap: 12px; padding: 30px 0; }
+.paginacao a, .paginacao span { padding: 10px 18px; border: 1px solid var(--filete); border-radius: var(--raio); font-size: 14px; color: var(--tinta); }
+.paginacao a:hover { border-color: var(--apagado); }
+.paginacao .desabilitado { color: var(--apagado); opacity: 0.55; }
+
+/* ---------- listas utilitárias (vagas, obituário, agenda, guia) ---------- */
+.lista-utilitaria { border-top: 1px solid var(--filete); }
+.lista-utilitaria li { list-style: none; padding: 22px 0; border-bottom: 1px solid var(--filete); }
+.item-utilitario-titulo { font-family: var(--serif); font-weight: 400; font-size: 19px; margin-bottom: 5px; }
+.item-utilitario-meta { font-size: 13px; color: var(--apagado); margin-bottom: 8px; }
+.item-utilitario-corpo { font-size: 15px; color: var(--secundario); }
+.estado-vazio { padding: 48px 0; color: var(--apagado); text-align: center; }
+
+.guia-grupo { padding: 22px 0; border-top: 1px solid var(--filete); }
+.guia-grupo:first-child { border-top: none; }
+.guia-grupo h2 { font-size: 17px; margin-bottom: 4px; }
+.guia-item { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 0; border-top: 1px solid var(--filete); }
+.guia-item-nome { font-weight: 600; font-size: 15px; }
+.guia-item-categoria { font-size: 12.5px; color: var(--apagado); }
+
+/* ---------- institucional ---------- */
+.pagina-institucional { max-width: var(--largura-texto); margin: 0 auto; padding: 30px 0 60px; }
+.pagina-institucional h1 { font-size: clamp(26px, 4.5vw, 34px); letter-spacing: -0.3px; margin-bottom: 20px; }
+.pagina-institucional h2 { font-size: 19px; font-weight: 400; margin-top: 1.4em; margin-bottom: 0.5em; }
+.pagina-institucional p { margin: 0 0 1.15em; line-height: 1.65; font-size: 16px; }
+
+/* ---------- rodapé ---------- */
+footer.rodape { background: var(--nevoa); border-top: 1px solid var(--filete); margin-top: 0; padding: 38px 0; font-size: 13.5px; color: var(--secundario); }
+.cols { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.cols strong { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--tinta); display: block; margin-bottom: 8px; }
+.cols ul { list-style: none; line-height: 2; }
+.legal { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--filete); }
+.legal p { font-size: 12.5px; color: var(--apagado); }
+.legal p + p { margin-top: 8px; }
+.rodape-cookies a { color: var(--secundario); }
+
+@media (min-width: 640px) {
+  .cols { grid-template-columns: 2fr 1fr 1fr; gap: 36px; }
+}
+
+/* ---------- 404 ---------- */
+.pagina-404 { max-width: 560px; margin: 80px auto; text-align: center; padding: 0 20px; }
+.pagina-404 h1 { font-size: 4.5rem; margin-bottom: 0.2em; color: var(--azul); }
+
+/* ---------- utilidades de acessibilidade / responsividade ---------- */
+.apenas-leitor { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}

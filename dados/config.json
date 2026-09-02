@@ -1,0 +1,23 @@
+{
+  "responsavel": "",
+  "cnpj": "",
+  "endereco": "",
+  "sobre": {
+    "titulo": "Sobre o Sul Metropolitano",
+    "corpo": "<p>O Sul Metropolitano cobre sete municípios do sul da Região Metropolitana de Curitiba: Mandirituba, Fazenda Rio Grande, Tijucas do Sul, Quitandinha, Agudos do Sul, Campo do Tenente e Piên.</p><p>São cidades que raramente aparecem no noticiário da capital, mas que têm política, economia, cultura e problemas de utilidade pública todos os dias. É esse o espaço que o Sul Metropolitano ocupa.</p><h2>Como funciona</h2><p>É uma operação de uma pessoa só, com apuração local e publicação direta, sem intermediários. Isso significa uma cobertura mais enxuta, mas também mais próxima de quem vive na região.</p><h2>Correções e sugestões de pauta</h2><p>Errou alguma coisa? Tem uma pauta para sugerir? Fale com a redação pelo <a href=\"/fale-conosco/\">Fale Conosco</a>.</p>"
+  },
+  "faleConosco": {
+    "titulo": "Fale Conosco",
+    "corpo": "<p>Tem uma pauta, uma correção a apontar, ou quer avisar sobre algo que está acontecendo na sua cidade? Fale com a redação.</p><p>E-mail: <a href=\"mailto:redacao@sulmetropolitano.com.br\">redacao@sulmetropolitano.com.br</a></p><p>Para anunciar seu negócio, veja a página <a href=\"/anuncie/\">Anuncie</a>.</p>"
+  },
+  "anuncie": {
+    "titulo": "Anuncie no Sul Metropolitano",
+    "corpo": "<p>O Sul Metropolitano é lido por moradores de Mandirituba, Fazenda Rio Grande, Tijucas do Sul, Quitandinha, Agudos do Sul, Campo do Tenente e Piên. Se o seu negócio atende essas cidades, fale com a gente para anunciar no guia comercial ou em uma matéria patrocinada.</p><p>Escreva para <a href=\"mailto:redacao@sulmetropolitano.com.br\">redacao@sulmetropolitano.com.br</a> contando o que você vende e em qual cidade.</p>"
+  },
+  "privacidade": {
+    "corpo": "<p>Esta política explica, de forma direta, quais dados o Sul Metropolitano coleta e como eles são usados.</p><h2>O que coletamos</h2><p>O site não usa cadastro de leitor nem coleta dados pessoais para funcionar. Formulários de contato, quando usados, servem apenas para responder à mensagem enviada.</p><h2>Cookies</h2><p>Podemos exibir publicidade de terceiros (como o Google AdSense), que utiliza cookies para mostrar anúncios com base em visitas a este e a outros sites. Você pode desativar o uso de cookies personalizados nas configurações de anúncios do Google.</p><h2>Contato</h2><p>Dúvidas sobre privacidade podem ser enviadas para <a href=\"mailto:redacao@sulmetropolitano.com.br\">redacao@sulmetropolitano.com.br</a>.</p>"
+  },
+  "expediente": {
+    "corpo": "<p>Sul Metropolitano é um veículo de notícias hiperlocal que cobre Mandirituba, Fazenda Rio Grande, Tijucas do Sul, Quitandinha, Agudos do Sul, Campo do Tenente e Piên, no Paraná.</p><h2>Responsável</h2><p>Operação de uma pessoa só. Correções e sugestões de pauta podem ser enviadas a qualquer momento.</p><h2>Contato</h2><p>E-mail: <a href=\"mailto:redacao@sulmetropolitano.com.br\">redacao@sulmetropolitano.com.br</a></p>"
+  }
+}
