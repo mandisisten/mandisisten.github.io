@@ -69,6 +69,16 @@
     });
   }
 
+  /* ---------- aba ativa no menu ---------- */
+  function initNavAtiva() {
+    var caminho = location.pathname;
+    document.querySelectorAll(".nav-principal > a[href]").forEach(function (link) {
+      var href = link.getAttribute("href");
+      var ehAtual = href === "/" ? caminho === "/" || /\/index\.html$/.test(caminho) : caminho.indexOf(href) === 0;
+      if (ehAtual) link.classList.add("ativo");
+    });
+  }
+
   /* ---------- compartilhar ---------- */
   function initCompartilhar() {
     var botoes = document.querySelectorAll("[data-compartilhar]");
@@ -186,6 +196,7 @@
     initMenu();
     initDropdownMunicipios();
     initFecharAoClicarFora();
+    initNavAtiva();
     initCompartilhar();
     initBusca();
   });
