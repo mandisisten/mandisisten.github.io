@@ -358,6 +358,9 @@ function renderTarjaUrgente(m) {
 /* widget "Mais notícias" — as matérias mais recentes fora a manchete,
    com miniatura pequena. Fica no topo da barra lateral, ao lado da
    matéria principal. */
+var RELOGIO_SVG =
+  '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>';
+
 function renderBarraMaisNoticias(index, manchete) {
   var itens = index.filter(function (m) { return !manchete || m.slug !== manchete.slug; }).slice(0, 3);
   if (!itens.length) return "";
@@ -366,14 +369,17 @@ function renderBarraMaisNoticias(index, manchete) {
       var videoId = extrairYoutubeId(m.video);
       var src = m.imagem || (videoId ? youtubeThumb(videoId) : null);
       var thumb = src
-        ? '<span class="noticia-mini-thumb"><img src="' + src + '" alt="" loading="lazy" width="64" height="64"></span>'
+        ? '<span class="noticia-mini-thumb"><img src="' + src + '" alt="" loading="lazy" width="96" height="80"></span>'
         : '<span class="noticia-mini-thumb"></span>';
       return (
         '<a class="noticia-mini" href="' + urlMateria(m.slug) + '">' +
-        thumb +
+        "  " + etiquetaCidade(m.cidade, { link: false }) + "\n" +
+        '  <span class="noticia-mini-linha">' +
         '<span class="noticia-mini-info">' +
         '<span class="t">' + escaparHtmlAdmin(m.titulo) + "</span>" +
-        '<span class="s">' + escaparHtmlAdmin(cidadeInfo(m.cidade).nome) + " · " + formatarDataCurta(m.publicadoEm) + "</span>" +
+        '<span class="s">' + RELOGIO_SVG + " " + formatarDataLegivel(m.publicadoEm) + "</span>" +
+        "</span>" +
+        thumb +
         "</span>" +
         "</a>"
       );
