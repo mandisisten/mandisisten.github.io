@@ -204,6 +204,14 @@ aside { margin-top: 34px; }
 aside section { margin-bottom: 34px; }
 aside h4 { font-size: 15px; font-weight: 800; padding-bottom: 10px; border-bottom: 1.5px solid var(--tinta); margin-bottom: 2px; }
 
+.noticia-mini { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--filete); }
+.noticia-mini-thumb { width: 64px; height: 64px; flex-shrink: 0; background: var(--nevoa); overflow: hidden; }
+.noticia-mini-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.noticia-mini-info { min-width: 0; }
+.noticia-mini .t { display: block; font-family: var(--sans); font-weight: 700; font-size: 13.5px; line-height: 1.32; }
+.noticia-mini:hover .t { color: var(--secundario); }
+.noticia-mini .s { display: block; font-size: 11.5px; color: var(--apagado); margin-top: 5px; }
+
 .cidade-linha, a.cidade-linha { display: flex; justify-content: space-between; gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--filete); font-size: 14px; }
 .cidade-linha:hover .nome { color: var(--azul-claro); }
 .cidade-linha .nome { color: var(--azul); font-weight: 600; }

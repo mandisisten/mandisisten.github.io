@@ -355,6 +355,33 @@ function renderTarjaUrgente(m) {
   );
 }
 
+/* widget "Mais notícias" — as matérias mais recentes fora a manchete,
+   com miniatura pequena. Fica no topo da barra lateral, ao lado da
+   matéria principal. */
+function renderBarraMaisNoticias(index, manchete) {
+  var itens = index.filter(function (m) { return !manchete || m.slug !== manchete.slug; }).slice(0, 3);
+  if (!itens.length) return "";
+  var linhas = itens
+    .map(function (m) {
+      var videoId = extrairYoutubeId(m.video);
+      var src = m.imagem || (videoId ? youtubeThumb(videoId) : null);
+      var thumb = src
+        ? '<span class="noticia-mini-thumb"><img src="' + src + '" alt="" loading="lazy" width="64" height="64"></span>'
+        : '<span class="noticia-mini-thumb"></span>';
+      return (
+        '<a class="noticia-mini" href="' + urlMateria(m.slug) + '">' +
+        thumb +
+        '<span class="noticia-mini-info">' +
+        '<span class="t">' + escaparHtmlAdmin(m.titulo) + "</span>" +
+        '<span class="s">' + escaparHtmlAdmin(cidadeInfo(m.cidade).nome) + " · " + formatarDataCurta(m.publicadoEm) + "</span>" +
+        "</span>" +
+        "</a>"
+      );
+    })
+    .join("");
+  return '<section><h4>Mais notícias</h4>' + linhas + "</section>";
+}
+
 /* widget "Nas cidades" da barra lateral: uma linha por cidade, nome +
    recência da última matéria. */
 function renderBarraNasCidades(index) {
@@ -423,9 +450,10 @@ function renderBarraAgenda(agenda) {
   return '<section><h4>Agenda</h4>' + linhas + "</section>";
 }
 
-function renderBarraLateralHome(index, vagas, agenda) {
+function renderBarraLateralHome(index, vagas, agenda, manchete) {
   return (
     "<aside>\n" +
+    renderBarraMaisNoticias(index, manchete) +
     renderBarraNasCidades(index) +
     '<section>' + reservaAnuncio("home-lateral") + "</section>\n" +
     renderBarraVideo(index) +
@@ -463,7 +491,7 @@ function renderPaginaHome(index, vagas, agenda) {
     renderBlocoVideos(index) +
     renderListaMaterias(resto.slice(0, 20)) +
     "</div>\n" +
-    renderBarraLateralHome(index, vagas, agenda) +
+    renderBarraLateralHome(index, vagas, agenda, manchete) +
     "</div>\n" +
     "</main>\n";
 
