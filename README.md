@@ -8,6 +8,14 @@ Site estático publicado pelo GitHub Pages. Sem servidor, sem banco de dados, se
 build. Um painel (`admin.html`) gera o HTML e grava tudo direto no repositório
 do GitHub, usando a API do GitHub. O leitor recebe HTML puro.
 
+No ar em **https://mandisisten.github.io/** (e em **https://sulmetropolitano.com.br/**
+assim que o DNS estiver apontado — ver passo 5 abaixo). O repositório se
+chama `mandisisten.github.io` de propósito: é o nome especial que o GitHub
+Pages publica direto na raiz do domínio, sem subpasta — necessário porque o
+site usa caminhos absolutos (`/assets/site.css`, `/mandirituba/`, `/n/{slug}/`)
+para ter URLs limpas. Um repositório com outro nome funcionaria só depois do
+domínio próprio estar no ar; com este nome, funciona desde já.
+
 ## Como o projeto é organizado
 
 - **`/dados/`** — a fonte da verdade. Arquivos JSON com o conteúdo de cada
@@ -23,7 +31,11 @@ do GitHub, usando a API do GitHub. O leitor recebe HTML puro.
 ## Primeiros passos
 
 1. **Crie um repositório público no GitHub.** O GitHub Pages gratuito exige
-   repositório público — não tem como usar um privado no plano free.
+   repositório público — não tem como usar um privado no plano free. Se ainda
+   não tiver domínio próprio no ar, nomeie o repositório
+   `SEU-USUARIO.github.io` (com o nome de usuário exato) — é o nome especial
+   que o GitHub publica direto na raiz, sem o qual os caminhos absolutos do
+   site (`/assets/...`, `/mandirituba/...`) não resolvem certo numa subpasta.
 
 2. **Ative o GitHub Pages.** Em Settings → Pages, escolha a branch `main` e a
    pasta raiz (`/`). Aguarde a primeira publicação.
