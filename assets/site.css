@@ -64,7 +64,7 @@ a.kicker:hover { color: var(--azul-claro); }
 /* ---------- cabeçalho ---------- */
 
 .topo { border-bottom: 1px solid var(--filete); background: var(--papel); position: sticky; top: 0; z-index: 50; }
-.topo-linha { display: flex; align-items: center; justify-content: space-between; padding: 18px 0 14px; gap: 12px; }
+.topo-linha { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; padding-bottom: 14px; gap: 12px; }
 .marca-nome { font-family: var(--sans); font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; display: block; color: var(--azul); }
 .marca-assinatura { font-size: 12px; color: var(--apagado); margin-top: 5px; display: block; }
 
@@ -97,7 +97,6 @@ a.kicker:hover { color: var(--azul-claro); }
 nav.nav-principal {
   border-top: 1px solid var(--filete);
   display: flex; flex-wrap: wrap; align-items: center; gap: 2px 22px;
-  padding: 0;
 }
 nav.nav-principal > a {
   display: block; font-size: 14px; font-weight: 500; color: var(--secundario);
@@ -134,7 +133,7 @@ nav.nav-principal > a.ativo { color: var(--tinta); font-weight: 700; border-bott
 .menu-completo-lista a { color: var(--secundario); font-size: 14px; padding: 4px 0; }
 .menu-completo-lista a:hover { color: var(--tinta); }
 
-.busca-painel { border-bottom: 1px solid var(--filete); padding: 14px 0; }
+.busca-painel { border-bottom: 1px solid var(--filete); padding-top: 14px; padding-bottom: 14px; }
 .busca-painel[hidden] { display: none; }
 .busca-campo { width: 100%; font-size: 15px; padding: 11px 14px; border: 1px solid var(--filete); border-radius: var(--raio); font-family: var(--sans); }
 .busca-resultados { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; max-height: 60vh; overflow-y: auto; }
@@ -146,7 +145,7 @@ nav.nav-principal > a.ativo { color: var(--tinta); font-weight: 700; border-bott
 
 main { display: block; }
 
-.grade { display: grid; grid-template-columns: 1fr; gap: 0; padding: 30px 0 56px; }
+.grade { display: grid; grid-template-columns: 1fr; gap: 0; padding-top: 30px; padding-bottom: 56px; }
 .coluna { min-width: 0; }
 
 @media (min-width: 860px) {
@@ -229,7 +228,7 @@ aside .reserva-anuncio { height: 230px; min-height: 0; }
 
 /* ---------- página de matéria ---------- */
 
-article.materia { max-width: var(--largura-leitura); padding: 30px 20px 56px; }
+article.materia { max-width: var(--largura-leitura); padding-top: 30px; padding-bottom: 56px; }
 .materia-cabecalho { margin-bottom: 0; }
 .materia-titulo { font-size: clamp(26px, 5vw, 38px); line-height: 1.16; letter-spacing: -0.02em; font-weight: 800; }
 .materia-resumo { font-family: var(--sans); font-weight: 400; font-size: 18px; line-height: 1.55; color: var(--secundario); margin-top: 12px; }
@@ -262,11 +261,11 @@ article.materia { max-width: var(--largura-leitura); padding: 30px 20px 56px; }
 .relacionadas h4 { font-size: 15px; margin-bottom: 4px; }
 
 /* ---------- cabeçalho de seção (cidade / editoria) ---------- */
-.cabecalho-secao { padding: 30px 0 6px; }
+.cabecalho-secao { padding-top: 30px; padding-bottom: 6px; }
 .cabecalho-secao h1 { font-size: clamp(24px, 4vw, 32px); letter-spacing: -0.02em; font-weight: 800; }
 .cabecalho-secao p { color: var(--secundario); margin: 6px 0 0; font-size: 15px; }
 
-.paginacao { display: flex; justify-content: space-between; gap: 12px; padding: 30px 0; }
+.paginacao { display: flex; justify-content: space-between; gap: 12px; padding-top: 30px; padding-bottom: 30px; }
 .paginacao a, .paginacao span { padding: 10px 18px; border: 1px solid var(--filete); border-radius: var(--raio); font-size: 14px; font-weight: 500; color: var(--tinta); }
 .paginacao a:hover { border-color: var(--apagado); }
 .paginacao .desabilitado { color: var(--apagado); opacity: 0.55; }
@@ -277,7 +276,7 @@ article.materia { max-width: var(--largura-leitura); padding: 30px 20px 56px; }
 .item-utilitario-titulo { font-family: var(--sans); font-weight: 700; font-size: 18px; margin-bottom: 5px; }
 .item-utilitario-meta { font-size: 13px; color: var(--apagado); margin-bottom: 8px; }
 .item-utilitario-corpo { font-size: 15px; color: var(--secundario); }
-.estado-vazio { padding: 48px 0; color: var(--apagado); text-align: center; }
+.estado-vazio { padding-top: 48px; padding-bottom: 48px; color: var(--apagado); text-align: center; }
 
 .guia-grupo { padding: 22px 0; border-top: 1px solid var(--filete); }
 .guia-grupo:first-child { border-top: none; }
@@ -287,7 +286,7 @@ article.materia { max-width: var(--largura-leitura); padding: 30px 20px 56px; }
 .guia-item-categoria { font-size: 12.5px; color: var(--apagado); }
 
 /* ---------- institucional ---------- */
-.pagina-institucional { max-width: var(--largura-texto); margin: 0 auto; padding: 30px 0 60px; }
+.pagina-institucional { max-width: var(--largura-texto); margin: 0 auto; padding-top: 30px; padding-bottom: 60px; }
 .pagina-institucional h1 { font-size: clamp(26px, 4.5vw, 34px); letter-spacing: -0.02em; margin-bottom: 20px; }
 .pagina-institucional h2 { font-size: 19px; font-weight: 700; margin-top: 1.4em; margin-bottom: 0.5em; }
 .pagina-institucional p { margin: 0 0 1.15em; line-height: 1.65; font-size: 16px; }
