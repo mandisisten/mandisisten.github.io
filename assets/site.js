@@ -72,7 +72,7 @@
   /* ---------- aba ativa no menu ---------- */
   function initNavAtiva() {
     var caminho = location.pathname;
-    document.querySelectorAll(".nav-principal > a[href]").forEach(function (link) {
+    document.querySelectorAll(".nav-principal > a[href], .nav-scroll > a[href]").forEach(function (link) {
       var href = link.getAttribute("href");
       var ehAtual = href === "/" ? caminho === "/" || /\/index\.html$/.test(caminho) : caminho.indexOf(href) === 0;
       if (ehAtual) link.classList.add("ativo");

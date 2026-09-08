@@ -200,18 +200,19 @@ function renderCabecalho() {
     .map(function (c) { return "<li><a href=\"" + urlCidade(c.slug) + "\">" + escaparHtmlAdmin(c.nome) + "</a></li>"; })
     .join("");
 
-  var itensPrincipais = ITENS_MENU_PRINCIPAL.map(function (item, i) {
-    var linkHtml = '<a href="' + item.href + '">' + escaparHtmlAdmin(item.rotulo) + "</a>";
-    if (i !== 1) return linkHtml;
-    // logo depois de "Início": o dropdown de Municípios
-    return (
-      '<details class="nav-dropdown" data-dropdown-municipios>\n' +
-      "  <summary>Municípios</summary>\n" +
-      '  <ul class="nav-dropdown-lista">' + linksCidades + "</ul>\n" +
-      "</details>\n" +
-      linkHtml
-    );
-  }).join("");
+  // "Início" e o dropdown de Municípios ficam fixos, sempre visíveis; o
+  // resto do menu vai numa faixa que rola horizontalmente no celular — sem
+  // isso, o dropdown de Municípios ficaria cortado dentro da área de rolagem.
+  var linkInicio = '<a href="' + ITENS_MENU_PRINCIPAL[0].href + '">' + escaparHtmlAdmin(ITENS_MENU_PRINCIPAL[0].rotulo) + "</a>";
+  var dropdownMunicipios =
+    '<details class="nav-dropdown" data-dropdown-municipios>\n' +
+    "  <summary>Municípios</summary>\n" +
+    '  <ul class="nav-dropdown-lista">' + linksCidades + "</ul>\n" +
+    "</details>\n";
+  var itensRolagem = ITENS_MENU_PRINCIPAL.slice(1)
+    .map(function (item) { return '<a href="' + item.href + '">' + escaparHtmlAdmin(item.rotulo) + "</a>"; })
+    .join("");
+  var itensPrincipais = linkInicio + dropdownMunicipios + '<div class="nav-scroll">' + itensRolagem + "</div>";
 
   var maisEditorias = EDITORIAS_FORA_DO_MENU
     .map(function (e) { return '<a href="' + urlEditoria(editoriaSlug(e)) + '">' + escaparHtmlAdmin(e) + "</a>"; })

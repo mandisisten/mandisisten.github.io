@@ -92,18 +92,32 @@ a.kicker:hover { color: var(--azul-claro); }
   .botao-busca-texto { display: inline; font-size: 13.5px; color: var(--apagado); }
 }
 
-/* menu principal — curado, quebra em várias linhas em telas estreitas
-   (não usa scroll horizontal, porque isso corta o dropdown de Municípios) */
+/* menu principal — curado. "Início" e "Municípios" ficam sempre visíveis;
+   o resto ("Sobre" em diante) roda numa faixa horizontal só dele — assim o
+   menu suspenso de Municípios nunca fica dentro de uma área que corta
+   conteúdo (overflow), e continua funcionando sem nenhum JavaScript. */
 nav.nav-principal {
   border-top: 1px solid var(--filete);
-  display: flex; flex-wrap: wrap; align-items: center; gap: 2px 22px;
+  display: flex; align-items: center; gap: 2px 20px;
 }
-nav.nav-principal > a {
+nav.nav-principal > a,
+.nav-scroll > a {
   display: block; font-size: 14px; font-weight: 500; color: var(--secundario);
-  padding: 13px 0; border-bottom: 2px solid transparent;
+  padding: 13px 0; border-bottom: 2px solid transparent; flex-shrink: 0; white-space: nowrap;
 }
-nav.nav-principal > a:hover { color: var(--tinta); }
-nav.nav-principal > a.ativo { color: var(--tinta); font-weight: 700; border-bottom-color: var(--azul); }
+nav.nav-principal > a, .nav-dropdown { flex-shrink: 0; }
+nav.nav-principal > a:hover, .nav-scroll > a:hover { color: var(--tinta); }
+nav.nav-principal > a.ativo, .nav-scroll > a.ativo { color: var(--tinta); font-weight: 700; border-bottom-color: var(--azul); }
+
+.nav-scroll {
+  display: flex; align-items: center; gap: 2px 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  min-width: 0;
+}
+.nav-scroll::-webkit-scrollbar { display: none; }
 
 .nav-dropdown { position: relative; }
 .nav-dropdown summary {
