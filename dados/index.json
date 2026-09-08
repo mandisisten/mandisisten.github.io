@@ -1,1 +1,93 @@
-[]
+[
+  {
+    "slug": "lg-inaugura-fabrica-de-r-15-bilhao-em-fazenda-rio-grande",
+    "titulo": "LG inaugura fábrica de R$ 1,5 bilhão em Fazenda Rio Grande",
+    "resumo": "A nova unidade da LG Electronics deve gerar cerca de mil empregos diretos e passa a produzir geladeiras feitas só no Paraná.",
+    "cidade": "fazenda-rio-grande",
+    "editoria": "Economia e Emprego",
+    "imagem": null,
+    "video": null,
+    "autor": "Redação",
+    "publicadoEm": "2026-09-08T09:15:00-03:00",
+    "destaque": true,
+    "urgente": false
+  },
+  {
+    "slug": "governo-do-estado-anuncia-r-176-milhoes-em-obras-para-mandirituba",
+    "titulo": "Governo do Estado anuncia R$ 17,6 milhões em obras para Mandirituba",
+    "resumo": "O pacote inclui a pavimentação de 64 ruas da cidade e a renovação do parque de máquinas da prefeitura.",
+    "cidade": "mandirituba",
+    "editoria": "Política",
+    "imagem": null,
+    "video": null,
+    "autor": "Redação",
+    "publicadoEm": "2026-09-07T11:30:00-03:00",
+    "destaque": false,
+    "urgente": false
+  },
+  {
+    "slug": "concurso-da-prefeitura-de-quitandinha-tem-129-vagas-e-provas-no-dia-20",
+    "titulo": "Concurso da Prefeitura de Quitandinha tem 129 vagas e provas no dia 20",
+    "resumo": "Salários chegam a R$ 12,1 mil; inscrições encerraram em 1º de setembro e o edital inclui 30 vagas para professor.",
+    "cidade": "quitandinha",
+    "editoria": "Economia e Emprego",
+    "imagem": null,
+    "video": null,
+    "autor": "Redação",
+    "publicadoEm": "2026-09-07T08:45:00-03:00",
+    "destaque": false,
+    "urgente": false
+  },
+  {
+    "slug": "obras-de-pavimentacao-e-drenagem-avancam-em-tijucas-do-sul",
+    "titulo": "Obras de pavimentação e drenagem avançam em Tijucas do Sul",
+    "resumo": "Serviços incluem intervenções no sistema viário, na drenagem e na mobilidade de um dos principais acessos da cidade.",
+    "cidade": "tijucas-do-sul",
+    "editoria": "Utilidade Pública",
+    "imagem": null,
+    "video": null,
+    "autor": "Redação",
+    "publicadoEm": "2026-09-05T10:00:00-03:00",
+    "destaque": false,
+    "urgente": false
+  },
+  {
+    "slug": "escolas-municipais-de-agudos-do-sul-recebem-kits-tecnologicos-do-estado",
+    "titulo": "Escolas municipais de Agudos do Sul recebem kits tecnológicos do Estado",
+    "resumo": "Equipamento faz parte do programa Educa Juntos e já está em uso nas atividades pedagógicas da rede.",
+    "cidade": "agudos-do-sul",
+    "editoria": "Saúde e Educação",
+    "imagem": null,
+    "video": null,
+    "autor": "Redação",
+    "publicadoEm": "2026-09-04T09:20:00-03:00",
+    "destaque": false,
+    "urgente": false
+  },
+  {
+    "slug": "ponte-entre-lapa-e-campo-do-tenente-e-liberada-apos-reparo-emergencial",
+    "titulo": "Ponte entre Lapa e Campo do Tenente é liberada após reparo emergencial",
+    "resumo": "Estrutura sobre o Rio da Várzea, na PR-427, tinha danos causados por excesso de peso e velocidade de veículos pesados.",
+    "cidade": "campo-do-tenente",
+    "editoria": "Utilidade Pública",
+    "imagem": null,
+    "video": null,
+    "autor": "Redação",
+    "publicadoEm": "2026-09-03T14:10:00-03:00",
+    "destaque": false,
+    "urgente": false
+  },
+  {
+    "slug": "chefe-de-esportes-de-pien-assume-direcao-da-liga-sul-de-futebol",
+    "titulo": "Chefe de esportes de Piên assume direção da Liga Sul de Futebol",
+    "resumo": "Alaor Bittencourt passa a integrar a diretoria da liga regional, que reúne times de várias cidades do sul da Grande Curitiba.",
+    "cidade": "pien",
+    "editoria": "Esporte",
+    "imagem": null,
+    "video": null,
+    "autor": "Redação",
+    "publicadoEm": "2026-09-02T16:00:00-03:00",
+    "destaque": false,
+    "urgente": false
+  }
+]
